@@ -1,0 +1,1 @@
+This is 3rd file is being adding to the Git repository
