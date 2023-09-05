@@ -1,2 +1,3 @@
 This is 3rd file is being adding to the Git repository
 Making some change to commit this to the remote
+This change is making directly from GitHub
