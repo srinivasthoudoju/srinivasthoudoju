@@ -18,5 +18,5 @@ jobs:
      - name: Print the content of the all the files
        run: |
         cat file2.txt
-        cat file3.txt
+        cat File3.txt
   
