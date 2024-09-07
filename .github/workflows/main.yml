@@ -1,5 +1,8 @@
 name: A Sample Workflow
-on: push
+on: 
+  push:
+    branches:
+      - i80218
 jobs:
   build-job:
     name: Welcome to the sample workflow in Github
