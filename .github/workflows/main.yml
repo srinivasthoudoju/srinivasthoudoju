@@ -1,5 +1,8 @@
 name: A Sample Workflow
-on: push
+on:
+ pull_request:
+   branches:
+    - main
 jobs:
   build-job:
     name: Welcome to the sample workflow in Github
