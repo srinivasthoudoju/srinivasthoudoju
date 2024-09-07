@@ -19,4 +19,8 @@ jobs:
        run: |
         cat file2.txt
         cat File3.txt
+     - name: Print the content of the Index html file2.txt
+       shell: bash
+       run: |
+        cat Index.html
   
