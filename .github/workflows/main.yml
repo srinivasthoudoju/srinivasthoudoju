@@ -1,0 +1,17 @@
+name: A Sample Workflow
+on: push
+jobs:
+  build-job:
+    name: Welcome to the sample workflow in Github
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout Code
+     - uses: actions/checkout@v3
+
+     - name: Print Hello-World
+     - shell: bash
+     - run: echo "Hello World"
+
+     - name: Print the content of the files presented in teh repository
+     - run: cat file1.txt
+  
