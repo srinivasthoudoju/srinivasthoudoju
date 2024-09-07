@@ -14,4 +14,10 @@ jobs:
 
      - name: Print the content of the files presented in teh repository
        run: cat file1.txt
+
+     - name: Print the content of the all the files
+       run: |
+        cat file1.txt
+        cat file2.txt
+        cat file3.txt
   
