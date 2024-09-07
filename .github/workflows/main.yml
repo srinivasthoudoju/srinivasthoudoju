@@ -13,7 +13,7 @@ jobs:
        run: echo "Hello World"
 
      - name: Print the content of the files presented in teh repository
-       run: cat file1.txt
+       run: cat File3.txt
 
      - name: Print the content of the all the files
        run: |
