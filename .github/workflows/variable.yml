@@ -1,0 +1,22 @@
+name: A Demo variable workflow
+on:
+  workflow_dispatch:
+env:
+  Day_Of_Week: Monday
+jobs:
+  build-job:
+    - name: A sample demo variable 
+      runs-on: ubuntu-latest
+      env:
+        Greeting: Hello
+      steps:
+        - name: Checkout the code
+          uses: actions/checkout@v3
+
+        - name: Printing the variable values
+          run: |
+            echo "Value of day of week is: {{ env.Day_Of_Week }}
+            echo "Value of Greeting is: $Greeting"
+        
+    
+  
