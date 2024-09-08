@@ -1,1 +1,27 @@
+name: second demovariable workflow
+on:
+  workflow_dispatch:
+env:
+  Day_Of_Week: Tuesday
+jobs:
+  build-job:
+    name: Another Demo variable example
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hi
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
 
+      - name: Printing the variable values
+        run: |
+          echo "Value of day of week is: ${{ env.Day_Of_Week }}"
+          echo "Value of Greeting is: $Greeting"
+          echo "Value of Repo variable is: ${{ vars.REPOVARIABLE }}"
+
+      - name: "Say Hi! Its Tuesday"
+        if: ${{ env.Day_Of_Week == 'Tuesday'}}
+        run: echo "${{env.Greeting}} {{env.FirstName }}. Today is ${{env.Day_Of_Week}}"
+        env:
+          FirstName: Srinivas
+    
