@@ -27,4 +27,6 @@ jobs:
        run: |
         cat Index.html
         echo "Test weather this echo statement triggers the workflow on main branch"
+        echo "The variable value is: {{ vars.REPOVARIABLE }}"
+        
   
