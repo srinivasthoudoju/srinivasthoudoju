@@ -20,7 +20,7 @@ jobs:
           echo "Value of Repo variable is: {{ vars.REPOVARIABLE }}
 
       - name: "Say Hello! Its Monday"
-        if:${{ env.Day_Of_Week == 'Monday'}}
+        if: ${{ env.Day_Of_Week == 'Monday'}}
         run: echo "${{env.Greeting}} ${{env.FirstName }}. Today is ${{env.Day_Of_Week}}"
         env:
           FirstName: Srinivas
