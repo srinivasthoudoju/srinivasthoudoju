@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       Greeting: Hi
-      Good Morning: Hyderabad
+      GoodMorning: Hyderabad
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
           echo "Value of Greeting is: $Greeting"
           echo "Value of Repo variable is: ${{ vars.REPOVARIABLE }}"
           echo "Value of the secret is: ${{ secrets.REPO_SECRET }}"
-          echo "Valueof the variable is: ${{ env.Good Morning }}"
+          echo "Valueof the variable is: ${{ env.GoodMorning }}"
 
       - name: "Say Hi! Its Tuesday"
         if: ${{ env.Day_Of_Week == 'Tuesday'}}
