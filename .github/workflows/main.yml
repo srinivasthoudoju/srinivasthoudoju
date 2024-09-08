@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - i80218
+    paths:
+      - '**'
+      - '!.github/**'
 jobs:
   build-job:
     name: Welcome to the sample workflow in Github
