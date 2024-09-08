@@ -1,6 +1,8 @@
 name: A Demo variable workflow
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 env:
   Day_Of_Week: Monday
 jobs:
