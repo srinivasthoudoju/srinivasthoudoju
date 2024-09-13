@@ -1,7 +1,7 @@
 name: 3rdDemoworkflow
 run-name: ${{github.repository}} - ${{github.workflow}} - ${{github.run_number}} - ${{github.run_attempt}}
 on:
-  workflow_dispatch
+  pull_request
 env:
   Day_Of_Week: Wednesday
 jobs:
