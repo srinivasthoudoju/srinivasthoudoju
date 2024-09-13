@@ -1,8 +1,12 @@
+
 name: A Demo variable workflow
 on:
   push:
     branches:
       - main
+    paths:
+      'variable.yml'
+     
 env:
   Day_Of_Week: Monday
 jobs:
