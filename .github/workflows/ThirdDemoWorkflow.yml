@@ -2,7 +2,7 @@ name: 3rd Demo workflow
 on:
   workflow_dispatch
 env:
-  Day-Of-Week: Wednesday
+  Day_Of_Week: Wednesday
 jobs:
   build-job:
     name: Build And Analyze job
@@ -21,7 +21,7 @@ jobs:
           echo "Value of City is: ${{ env.City }}
 
       - name: "Say Hi It's Wednesday"
-        if: ${{ env.Day-Of-Week == "Wednesday" }}
+        if: ${{ env.Day_Of_Week == "Wednesday" }}
         run: |
           echo "${{env.Greeting}} ${{env.FirstName}}. Today is ${{env.Day-Of-Week}}
         env:
