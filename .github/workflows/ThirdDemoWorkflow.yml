@@ -30,9 +30,9 @@ jobs:
 
       - name: "Printing the Github context information"
         run: |
-          echo: "The value of Github RunID info: {{github.run_id}}"
-          echo: "The value of Github Runner Info: {{github.run_number}}"
-          echo: "The value of Github Run Attempt info: {{github.run_attempt}}"
+          echo "The value of Github RunID info: {{github.run_id}}"
+          echo "The value of Github Runner Info: {{github.run_number}}"
+          echo "The value of Github Run Attempt info: {{github.run_attempt}}"
          
         
         
