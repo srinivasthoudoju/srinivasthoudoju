@@ -1,4 +1,4 @@
-name: 3rd Demo workflow
+name: 3rdDemoworkflow
 run-name: ${{github.repository}} - ${{github.workflow}} - ${{github.run_number}} - ${{github.run_attempt}}
 on:
   workflow_dispatch
