@@ -1,0 +1,27 @@
+name: Built-In Variables workflow
+on:
+  workflow_dispatch
+jobs:
+  Github-variables:
+    name: Display Github built-in variables
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the Github Builtin variables
+        uses: actions/checkout@v3
+
+      - name: Printing the Github Default variables
+        run: |
+          echo "The value of Github Actior is: ${{github.actor}}"
+          echo "The value of Github Event is: {${github.event_name}}"
+          echo "The value of Runner Operating system is: ${{runner.os}}"
+          echo "The name of yoru branch is: ${{github.ref}}"
+          echo "The name of the repository is: ${{github.repository}}"
+
+      - name: List files in the repository
+        run: |
+          ls ${{github.workspace}}
+          echo "The jobs status is: ${{job.status}}"
+          
+        
+  
