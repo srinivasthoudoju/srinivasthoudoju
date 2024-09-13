@@ -9,7 +9,7 @@ jobs:
     name: Build And Analyze job
     runs-on: ubuntu-latest
     env:
-      Greeting: Hi! How are you
+      Greeting: Hi! How are you! Where are you
       City: Hyderabad
     steps:
       - name: Checkout the code base
