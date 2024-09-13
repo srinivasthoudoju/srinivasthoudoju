@@ -21,7 +21,7 @@ jobs:
           echo "Value of City is: ${{ env.City }}
 
       - name: "Say Hi It's Wednesday"
-        if: ${{ env.Day_Of_Week == "Wednesday" }}
+        if: ${{ env.Day_Of_Week == 'Wednesday' }}
         run: |
           echo "${{env.Greeting}} ${{env.FirstName}}. Today is ${{env.Day-Of-Week}}
         env:
