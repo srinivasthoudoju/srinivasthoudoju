@@ -17,7 +17,7 @@ jobs:
       - name: Printing the environment variables
         run: |
           echo "Value of DayOfweek is: ${{ env.Day_Of_Week }}
-          echo "Value of Greeting is: ${{ env.Greeinting }}
+          echo "Value of Greeting is: ${{ env.Greeting }}
           echo "Value of City is: ${{ env.City }}
 
       - name: "Say Hi It's Wednesday"
