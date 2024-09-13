@@ -16,14 +16,14 @@ jobs:
         
       - name: Printing the environment variables
         run: |
-          echo "Value of DayOfweek is: ${{ env.Day-Of-Week }}
+          echo "Value of DayOfweek is: ${{ env.Day_Of_Week }}
           echo "Value of Greeting is: ${{ env.Greeinting }}
           echo "Value of City is: ${{ env.City }}
 
       - name: "Say Hi It's Wednesday"
         if: ${{ env.Day_Of_Week == 'Wednesday' }}
         run: |
-          echo "${{env.Greeting}} ${{env.FirstName}}. Today is ${{env.Day-Of-Week}}
+          echo "${{env.Greeting}} ${{env.FirstName}}. Today is ${{env.Day_Of_Week}}
         env:
           FirstName: Srinivas
          
