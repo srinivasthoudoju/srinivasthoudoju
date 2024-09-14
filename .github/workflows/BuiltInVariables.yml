@@ -13,7 +13,7 @@ jobs:
       - name: Printing the Github Default variables
         run: |
           echo "The value of Github Actior is: ${{github.actor}}"
-          echo "The value of Github Event is: {${github.event_name}}"
+          echo "The value of Github Event is: ${{github.event_name}}"
           echo "The value of Runner Operating system is: ${{runner.os}}"
           echo "The name of yoru branch is: ${{github.ref}}"
           echo "The name of the repository is: ${{github.repository}}"
