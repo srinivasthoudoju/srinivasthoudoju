@@ -17,6 +17,9 @@ jobs:
           echo "The value of Runner Operating system is: ${{runner.os}}"
           echo "The name of yoru branch is: ${{github.ref}}"
           echo "The name of the repository is: ${{github.repository}}"
+          echo "The value of github runnerID is: ${{github.run_id}}"
+          echo "The value of github is: ${{github.run_number}}"
+          echo "The value of github is: ${{github.run_attempt}}"
 
       - name: List files in the repository
         run: |
