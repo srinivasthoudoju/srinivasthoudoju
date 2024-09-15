@@ -1,0 +1,18 @@
+name: Caching Demo Workfloe
+on: workflow_dispatch
+jobs:
+  build-job:
+    name: Caching Demo to understand the Caching concept in the Github
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code base
+        uses: actions/checkout@v3
+      - name: Create a file
+        run: echo $(date)>Demofile.txt
+      - name: Caching Demofile.txt
+        uses: actions/cache@v3
+      - name: Print content of demo file
+        run: cat Demofile.txt
+        
+        
