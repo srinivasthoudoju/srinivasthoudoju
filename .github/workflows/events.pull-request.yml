@@ -1,0 +1,10 @@
+name: Pull Request Triggered Actions
+run-name: ${{ github.repository }} - ${{ github.workflow }} - ${{ github.run_number }}_${{ github.run_attempt }}
+  
+on:
+  - pull_request
+  
+jobs:
+  Build:
+    uses: ./.github/workflows/common.build.yml
+    secrets: inherit
