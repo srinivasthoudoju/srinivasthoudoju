@@ -1,0 +1,13 @@
+name: Merge Group Triggered Actions
+run-name: ${{ github.repository }} - ${{ github.workflow }} - ${{ github.run_number }}_${{ github.run_attempt }}
+
+on:
+  - merge_group
+
+env:
+  environment: "Development"
+
+jobs:
+  Build:
+    uses: ./.github/workflows/common.build.yml
+    secrets: inherit
