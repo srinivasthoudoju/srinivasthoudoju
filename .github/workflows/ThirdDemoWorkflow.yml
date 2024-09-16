@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "${{env.Greeting}} ${{env.FirstName}}. Today is ${{env.Day_Of_Week}}"
         env:
-          FirstName: Srinivas
+          FirstName: SrinivasThoudoju
 
       - name: "Printing the Github context information"
         run: |
