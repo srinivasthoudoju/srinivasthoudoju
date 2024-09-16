@@ -1,0 +1,52 @@
+name: Common Build Actions
+
+on:
+  workflow_call:
+
+jobs:
+  CalculateGitTagAndRetention:
+    uses: ExtremeEventSolutions/ees-workflows/.github/workflows/ees.common.gittagandretention.yml@main
+    secrets: inherit
+  CalculateSourceBranch:
+    uses: ./.github/workflows/common.calculatesource.yml
+    secrets: inherit
+  BuildPythonDummy:
+    needs: [CalculateGitTagAndRetention, CalculateSourceBranch]
+    uses: ./.github/workflows/build.python.dummy.yml
+    with:
+      daysToRetain: ${{ needs.CalculateGitTagAndRetention.outputs.ARTIFACT_RETENTION_IN_DAYS }}
+      gitversion: ${{ needs.CalculateGitTagAndRetention.outputs.GIT_TAG }}
+      sourceBranchName: ${{ needs.CalculateSourceBranch.outputs.SOURCE_BRANCH }}
+    secrets: inherit
+  BuildDotNetDummy:
+    needs: [CalculateGitTagAndRetention, CalculateSourceBranch]
+    uses: ./.github/workflows/build.dotnet.dummy.yml
+    with:
+      daysToRetain: ${{ needs.CalculateGitTagAndRetention.outputs.ARTIFACT_RETENTION_IN_DAYS }}
+      gitversion: ${{ needs.CalculateGitTagAndRetention.outputs.GIT_TAG }}
+      sourceBranchName: ${{ needs.CalculateSourceBranch.outputs.SOURCE_BRANCH }}
+    secrets: inherit
+  BuildAngularDummy:
+    needs: [CalculateGitTagAndRetention, CalculateSourceBranch]
+    uses: ./.github/workflows/build.angular.dummy.yml
+    with:
+      daysToRetain: ${{ needs.CalculateGitTagAndRetention.outputs.ARTIFACT_RETENTION_IN_DAYS }}
+      gitversion: ${{ needs.CalculateGitTagAndRetention.outputs.GIT_TAG }}
+      sourceBranchName: ${{ needs.CalculateSourceBranch.outputs.SOURCE_BRANCH }}
+    secrets: inherit
+  TestSMTPEmail:
+    needs: [BuildPythonDummy, BuildDotNetDummy, BuildAngularDummy]
+    uses: ./.github/workflows/common.smtp.yml
+    secrets: inherit
+  PostBuildTag:
+    needs:
+      [
+        CalculateGitTagAndRetention,
+        BuildPythonDummy,
+        BuildDotNetDummy,
+        BuildAngularDummy,
+      ]
+    uses: ./.github/workflows/retag.postbuild.yml
+    with:
+      gitversion: ${{ needs.CalculateGitTagAndRetention.outputs.GIT_TAG }}
+    secrets: inherit
