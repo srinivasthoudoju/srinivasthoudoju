@@ -14,9 +14,23 @@ jobs:
         run: echo "${{github.workspace}}"
       - name: Printing the list of files
         run: ls ${{github.workspace}}
+        
       - name: Caching Demofile.txt
+        id: demo-cache-id
         uses: actions/cache@v3
-      - name: Print content of demo file
+        with:
+          path: Demofile.txt
+          key: ${{hashfiles('cache.txt')}}
+      - name: Printe content of Demofile
         run: cat Demofile.txt
+
+      - name: Cache found
+        if: ${{steps.demo-cache-id.outputs.cache-hit == 'true'}}
+        run: echo "cache found"
+
+      - name: Cache not found
+        if: ${{steps.demo-cache-id.outputs.cache-hit != 'true'}}
+        run: echo cache not found
+     
         
         
