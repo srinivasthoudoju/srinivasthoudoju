@@ -12,6 +12,8 @@ jobs:
         run: echo $(date)>Demofile.txt
       - name: Printing the Github workspace
         run: echo "${{github.workspace}}"
+      - name: Print the working directory
+        run: pwd
       - name: Printing the list of files
         run: ls ${{github.workspace}}
         
