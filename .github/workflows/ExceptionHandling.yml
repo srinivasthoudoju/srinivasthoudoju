@@ -16,7 +16,7 @@ jobs:
       - name: Checkout the codebase
         uses: actions/checkout@v4
       - name: Setup the Msbuild
-        uses: microsoft/setup-msbuild@v17
+        uses: microsoft/setup-msbuild@v2
       - name: Build the ExceptionHandling Solution
         run: msbuild ExceptionHandlingDemo.sln -t:rebuild -property:Configuration=Release
     
