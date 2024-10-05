@@ -21,8 +21,10 @@ jobs:
         run: dir
       - name: Build the ExceptionHandling Solution
         run: msbuild ExceptionHandlingDemo/ExceptionHandlingDemo.sln -t:rebuild -property:Configuration=Release
+      - name: List the files
+        run: dir
       - name: Execute the ExceptionHandlingDemo
-        run: ExceptionHandlingDemo.exe 10 5
+        run: ExceptionHandlingDemo\bin\Release\ExceptionHandlingDemo.exe 10 5
   
   Running_build_Output:
     name: Running the ExceptionHandlingDemo executable
