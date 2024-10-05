@@ -24,9 +24,11 @@ jobs:
   
   Running_build_Output:
     name: Running the ExceptionHandlingDemo executable
-    runs-on: windows-latset
+    runs-on: windows-latest
     steps:
-      - name: Execution of Executable
+      - name: Checkout the code base
+        uses: actions/checkout@v4
+      - name: Execute the ExceptionHandlingDemo Executable
         run: ExceptionHandlingDemo\bin\Release\ExceptionHandlingDemo.exe 10 5
 
     
