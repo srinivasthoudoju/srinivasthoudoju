@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - .github/workflows/ExceptionHandling.yml
-      - .ExceptionHandlingDemo
+      - ExceptionHandlingDemo
 
 jobs:
   ExceptionHandling_build:
@@ -17,6 +17,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup the Msbuild
         uses: microsoft/setup-msbuild@v2
+      - name: List all the files
+        run: dir
       - name: Build the ExceptionHandling Solution
         run: msbuild ExceptionHandlingDemo.sln -t:rebuild -property:Configuration=Release
     
