@@ -21,7 +21,13 @@ jobs:
         run: dir
       - name: Build the ExceptionHandling Solution
         run: msbuild ExceptionHandlingDemo/ExceptionHandlingDemo.sln -t:rebuild -property:Configuration=Release
-    
+  
+  Running_build_Output:
+    name: Running the ExceptionHandlingDemo executable
+    runs-on: windows-latset
+    steps:
+      - name: Execution of Executable
+        run: ExceptionHandlingDemo\bin\Release\ExceptionHandlingDemo.exe 10 5
 
     
     
