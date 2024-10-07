@@ -37,7 +37,7 @@ jobs:
     needs: ExceptionHandling_build
     steps:
       - name: Display the Github Runner name
-        run: echo "${{runner.name}}
+        run: echo "${{runner.name}}"
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
