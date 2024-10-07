@@ -23,17 +23,29 @@ jobs:
         run: msbuild ExceptionHandlingDemo/ExceptionHandlingDemo.sln -t:rebuild -property:Configuration=Release
       - name: List the files
         run: dir
-      - name: Execute the ExceptionHandlingDemo
-        run: ExceptionHandlingDemo\bin\Release\ExceptionHandlingDemo.exe 10 5
-  
+      - name: Display Github RunnerName
+        run: echo "${{runner.name}}"
+      - name: Upload BuildArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: exceptionhandling-exe
+          path: ExceptionHandlingDemo/bin/Release/ExceptionHandlingDemo.exe
+
   Running_build_Output:
     name: Running the ExceptionHandlingDemo executable
     runs-on: windows-latest
+    needs: ExceptionHandling_build
     steps:
-      - name: Checkout the code base
-        uses: actions/checkout@v4
-      - name: Execute the ExceptionHandlingDemo Executable
-        run: ExceptionHandlingDemo\bin\Release\ExceptionHandlingDemo.exe 10 5
+      - name: Display the Github Runner name
+        run: echo "${{runner.name}}
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: exceptionhandling-exe
+      - name: Execute the excpetionhandlingdemo
+        run: ExceptionHandlingDemo.exe 10 5
+        
+    
 
     
     
