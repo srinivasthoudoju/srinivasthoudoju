@@ -43,7 +43,11 @@ jobs:
         with:
           name: exceptionhandling-exe
       - name: List the files in the workspace of Github running
-        run: dir
+        run:  |
+          echo " Listing the content of the directory"
+          dir .\exceptionhandling-exe\
+          dir ./exceptionhandling-exe/
+          echo " ls ${{github.workspace}}"
       - name: Display workspace information 
         run: echo "${{github.workspace}}"
       - name: Execute the excpetionhandlingdemo
