@@ -47,7 +47,7 @@ jobs:
       - name: Display workspace information 
         run: echo "${{github.workspace}}"
       - name: Execute the excpetionhandlingdemo
-        run: ./exceptionhandling-exe/ExceptionHandlingDemo.exe 10 5
+        run: .\exceptionhandling-exe\ExceptionHandlingDemo.exe 10 5
         
     
 
