@@ -47,7 +47,7 @@ jobs:
       - name: List the files of workspace 
         run: ls ${{github.workspace}}
       - name: Execute the excpetionhandlingdemo
-        run: ./ExceptionHandlingDemo.exe 10 5
+        run: ExceptionHandlingDemo.exe 30 10
         
     
 
