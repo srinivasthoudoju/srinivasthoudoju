@@ -44,6 +44,8 @@ jobs:
           name: exceptionhandling-exe
       - name: Display workspace information 
         run: echo "${{github.workspace}}"
+      - name: List the files of workspace 
+        run: ls ${{github.workspace}}
       - name: Execute the excpetionhandlingdemo
         run: ./ExceptionHandlingDemo.exe 10 5
         
