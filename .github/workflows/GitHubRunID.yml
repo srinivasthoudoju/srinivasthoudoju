@@ -26,6 +26,13 @@ jobs:
       - name: Generate version
         run: echo "Version:$MAJOR.$MINOR.$BUILD.$REVISION"
 
+      # Output the full version string
+      - name: Generate version
+        run: |
+          VERSION="ees-rs-loss-$MAJOR.$MINOR.$PATCH.$BUILD"
+          echo "Generated Version: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
       # Optional: Tag the version in GitHub
       - name: Create a Git tag
         run: |
