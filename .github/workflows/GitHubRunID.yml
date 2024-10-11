@@ -17,6 +17,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Display the Run ID
         run: echo "The run ID for this workflow is:${{ github.run_id }}"
+      - name: GithubRunner display
+        run: echo "The Github Runner for the execution:${{runner.name}}"
       - name: Save artifact with Run ID
         run: zip -r artifiact_${{github.run_id}} ./
       - name: List the files in the zip directory
