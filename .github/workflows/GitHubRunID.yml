@@ -1,0 +1,28 @@
+name: Understanding the GitHub RunID, RunNumber and RunAttempt
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/GitHubRunID.yml
+
+jobs:
+  build-job:
+    name: Display the GitHub Runner Numbers, IDs, and Attempt information
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code base
+        uses: actions/checkout@v4
+      - name: Display the Run ID
+        run: echo "The run ID for this workflow is: ${{github.run_id}}"
+      - name: Use Run ID in a script
+        run: |
+          echo "Running script with Run ID: ${{github.run_id}}"
+          ./myscript.sh ${{github.run_id}}
+      - name: Save artifact with Run ID
+        run: zip -r artifiact_${{github.run_id}} ./
+      - name: List the files in the zip directory
+        run: ls -l
+      
+      
