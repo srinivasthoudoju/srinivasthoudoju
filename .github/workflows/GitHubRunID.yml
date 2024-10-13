@@ -1,5 +1,5 @@
 name: ees-rs-loss
-run-name: ${{github.workflow}} - ${{github.run_number}} - ${{github.run_id}}_ ${{github.run_attempt}
+run-name: ${{github.workflow}} - ${{github.run_number}} - ${{github.run_id}}_ ${{github.run_attempt}}
 on:
   push:
     branches:
