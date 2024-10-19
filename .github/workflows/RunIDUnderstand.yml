@@ -18,7 +18,8 @@ jobs:
       - name: List the files in the directory
         run: |
           echo "ls ${{github.repository}}"
-          echo "ls -l ${{github.repository}}/MyApp"
+          ls -l
+          ls -l ./MyApp
 
       - name: Build ExceptionHandlingDemo
         run: dotnet build MyApp/MyApp.sln --configuration Release
@@ -27,4 +28,4 @@ jobs:
         run: dotnet publish -c Release -o ./artifacts
 
       - name: List the files in the workfing directory
-        run: echo "ls ${{github.repository}}
+        run: ${{github.repository}}
