@@ -15,7 +15,10 @@ jobs:
       - name: Checkout the codebase
         uses: actions/checkout@v4
 
-      - name: Build MyApp
+      - name: List the files in the directory
+        run: echo "ls ${{github.repository}}
+
+      - name: Build ExceptionHandlingDemo
         run: dotnet build ExceptioHandlingDemo.sln
 
       - name: Create an Artifact
