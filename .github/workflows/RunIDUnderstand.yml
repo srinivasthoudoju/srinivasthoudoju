@@ -27,5 +27,4 @@ jobs:
       - name: Create an Artifact
         run: dotnet publish MyApp/MyApp.csproj -c Release -o ./artifacts
 
-      - name: List the files in the workfing directory
-        run: ${{github.repository}}
+      
