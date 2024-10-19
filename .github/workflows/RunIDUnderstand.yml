@@ -25,7 +25,7 @@ jobs:
         run: dotnet build MyApp/MyApp.sln --configuration Release
 
       - name: Run the MyApp Application
-        run: dotnet run ./MyApp
+        run: dotnet run --project ./MyApp
 
       - name: Create an Artifact
         run: dotnet publish MyApp/MyApp.csproj -c Release -o ./artifacts
