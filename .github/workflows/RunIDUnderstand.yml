@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build MyApp
-        run: dotnet build MyApp.sln
+        run: dotnet build ExceptioHandlingDemo.sln
 
       - name: Create an Artifact
         run: dotnet publish -c Release -o ./artifacts
