@@ -21,10 +21,14 @@ jobs:
           ls -l
           ls -l ./MyApp
 
-      - name: Build ExceptionHandlingDemo
+      - name: Build MyApp
         run: dotnet build MyApp/MyApp.sln --configuration Release
+
+      - name: Run the MyApp Application
+        run: dotnet run ./MyApp
 
       - name: Create an Artifact
         run: dotnet publish MyApp/MyApp.csproj -c Release -o ./artifacts
+        
 
       
