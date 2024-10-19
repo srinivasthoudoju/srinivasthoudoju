@@ -16,7 +16,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: List the files in the directory
-        run: echo "ls ${{github.repository}}"
+        run: |
+          echo "ls ${{github.repository}}"
+          ls -l
 
       - name: Build ExceptionHandlingDemo
         run: dotnet build ExceptioHandlingDemo.sln
