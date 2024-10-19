@@ -18,7 +18,7 @@ jobs:
       - name: List the files in the directory
         run: |
           echo "ls ${{github.repository}}"
-          ls -l
+          echo "ls -l ${{github.repository}}/MyApp"
 
       - name: Build ExceptionHandlingDemo
         run: dotnet build MyApp/MyApp.sln
