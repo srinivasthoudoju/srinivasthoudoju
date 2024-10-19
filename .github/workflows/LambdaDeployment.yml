@@ -1,4 +1,5 @@
 name: Push to aws Lambda function
+run-name: ${{github.repository}} - ${{github.workflow}} - ${{github.run_number}} - ${{github.run_id}} _ ${{github.run_attmpt}}
 on:
   push:
     branches:

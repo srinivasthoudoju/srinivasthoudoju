@@ -1,0 +1,30 @@
+name: Build and Deploy - RunID
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/RunIDUnderstand.yml
+
+jobs:
+  build:
+    name: Build and Create Artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the codebase
+        uses: actions/checkout@v4
+
+      - name: List the files in the directory
+        run: |
+          echo "ls ${{github.repository}}"
+          ls -l
+
+      - name: Build ExceptionHandlingDemo
+        run: dotnet build ./ExceptionHandlingDemo/ExceptionHandlingDemo.sln
+
+      - name: Create an Artifact
+        run: dotnet publish -c Release -o ./artifacts
+
+      - name: List the files in the workfing directory
+        run: echo "ls ${{github.repository}}

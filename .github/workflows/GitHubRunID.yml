@@ -1,0 +1,52 @@
+name: ees-rs-loss
+run-name: ${{github.workflow}} - ${{github.run_number}} - ${{github.run_id}}_ ${{github.run_attempt}}
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/GitHubRunID.yml
+
+jobs:
+  build-job:
+    name: Display the GitHub Runner Numbers, IDs, and Attempt information
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code base
+        uses: actions/checkout@v4
+      # Set version components (major, minor, build and revision)
+      - name: Set versioning variables
+        run: |
+          echo "MAJOR=13" >> $GITHUB_ENV
+          echo "MINOR=0" >> $GITHUB_ENV
+          echo "BUILD=0" >> $GITHUB_ENV
+          echo "REVISION=${{ github.run_number }}" >> $GITHUB_ENV
+          
+       # Output the version string
+      - name: Generate version
+        run: echo "Version:$MAJOR.$MINOR.$BUILD.$REVISION"
+
+      # Output the full version string
+      - name: Generate version
+        run: |
+          VERSION="ees-rs-loss-$MAJOR.$MINOR.$BUILD.$REVISION"
+          echo "Generated Version: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      # Optional: Tag the version in GitHub
+      - name: Create a Git tag
+        run: |
+          VERSION_TAG="$MAJOR.$MINOR.$BUILD.$REVISION"
+          git tag $VERSION_TAG
+          git push origin $VERSION_TAG
+      - name: Display the Run ID
+        run: echo "The run ID for this workflow is:${{ github.run_id }}"
+      - name: GithubRunner display
+        run: echo "The Github Runner for the execution:${{runner.name}}"
+      - name: Save artifact with Run ID
+        run: zip -r artifiact_${{github.run_id}} ./
+      - name: List the files in the zip directory
+        run: ls -l
+      
+      

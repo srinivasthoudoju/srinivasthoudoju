@@ -1,0 +1,55 @@
+name: A sample Dot net Framework solution build
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/ExceptionHandling.yml
+      - ExceptionHandlingDemo
+
+jobs:
+  ExceptionHandling_build:
+    name: Build the ExceptionHadling Solution
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout the codebase
+        uses: actions/checkout@v4
+      - name: Setup the Msbuild
+        uses: microsoft/setup-msbuild@v2
+      - name: List all the files
+        run: dir
+      - name: Build the ExceptionHandling Solution
+        run: msbuild ExceptionHandlingDemo/ExceptionHandlingDemo.sln -t:rebuild -property:Configuration=Release
+      - name: List the files
+        run: dir
+      - name: Display Github RunnerName
+        run: echo "${{runner.name}}"
+      - name: Upload BuildArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: exceptionhandling-exe
+          path: ExceptionHandlingDemo/bin/Release/ExceptionHandlingDemo.exe
+
+  Running_build_Output:
+    name: Running the ExceptionHandlingDemo executable
+    runs-on: windows-latest
+    needs: ExceptionHandling_build
+    steps:
+      - name: Display the Github Runner name
+        run: echo "${{runner.name}}"
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: exceptionhandling-exe
+      - name: Display workspace information 
+        run: echo "${{github.workspace}}"
+      - name: List the files of workspace 
+        run: ls ${{github.workspace}}
+      - name: Execute the excpetionhandlingdemo
+        run: .\ExceptionHandlingDemo.exe 30 10
+        
+    
+
+    
+    
