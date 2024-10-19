@@ -32,6 +32,15 @@ jobs:
 
       - name: List of files in the Artifact location
         run: ls -l ./artifacts
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: myapp-artifact
+          path: ./artifacts
+
+      - name: Get RunId
+        run: echo "This pipeline RunID is:${{github.run_id}}"
         
 
       
