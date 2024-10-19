@@ -21,7 +21,7 @@ jobs:
           ls -l
 
       - name: Build ExceptionHandlingDemo
-        run: dotnet build ./ExceptionHandlingDemo/ExceptioHandlingDemo.sln
+        run: dotnet build ./ExceptionHandlingDemo/ExceptionHandlingDemo.sln
 
       - name: Create an Artifact
         run: dotnet publish -c Release -o ./artifacts
