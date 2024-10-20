@@ -41,6 +41,22 @@ jobs:
 
       - name: Get RunId
         run: echo "This pipeline RunID is:${{github.run_id}}"
+
+  deploy:
+    name: deploy MyApp
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: myapp-artifact-${{github.run_id}}
+
+      - name: Deploy to environment
+        run: | 
+          echo "Deploying artifact for RunID: ${{github.run_id}}"
+        
         
 
       
