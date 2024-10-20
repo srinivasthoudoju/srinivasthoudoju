@@ -36,7 +36,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: myapp-artifact
+          name: myapp-artifact-${{github.run_id}}
           path: ./artifacts
 
       - name: Get RunId
