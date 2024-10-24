@@ -1,0 +1,14 @@
+name: To understand the subject of Inputs
+on:
+  workflow_dispatch:
+jobs:
+  inputs:
+    name: Inputs in the workflow files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the codebase
+        uses: actions/checkout@v4
+
+      - name: Greetings
+        run: echo "Print the Hello, World!"
