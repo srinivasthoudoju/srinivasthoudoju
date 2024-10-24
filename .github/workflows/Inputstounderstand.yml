@@ -1,6 +1,11 @@
 name: To understand the subject of Inputs
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name'
+        type: string
+        default: 'Test'
 jobs:
   inputs:
     name: Inputs in the workflow files
@@ -11,4 +16,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Greetings
-        run: echo "Print the Hello, World!"
+        run: echo " ${{inputs.name}}"
