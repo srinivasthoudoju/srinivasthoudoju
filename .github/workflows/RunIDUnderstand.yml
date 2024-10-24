@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Python and NodeJs
-        uses: srinivasthoudoju/Compositeactions@main
+        uses: srinivasthoudoju/Compositeactions/InstallPythonNodeJs@main
 
       - name: Check the Python version
         run: python --version
