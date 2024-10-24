@@ -18,6 +18,12 @@ jobs:
       - name: Install Python and NodeJs
         uses: srinivasthoudoju/Compositeactions@main
 
+      - name: Check the Python version
+        run: python --version
+
+      - name: Check the node version
+        run: node --version
+
       - name: List the files in the directory
         run: |
           echo "ls ${{github.repository}}"
