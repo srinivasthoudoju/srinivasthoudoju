@@ -1,0 +1,14 @@
+name: Install Phython and NodeJS
+runs:
+  using: "composite"
+
+  steps:
+    - name: Set up Phython
+      uses: acitons/setup-python@2
+      with:
+        python-version: '3.x'
+
+    - name: Setup NodeJS
+      uses: actions/setup-node@v4
+      with: 
+        node-version: '18.x'
